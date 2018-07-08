@@ -1,0 +1,50 @@
+<h2>Show Lead:</h2>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @loan.name %>
+</p>
+
+<p>
+  <strong>Contact no:</strong>
+  <%= @loan.contact_no %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @loan.email %>
+</p>
+
+<p>
+  <strong>Loan amount:</strong>
+  <%= @loan.loan_amount %>
+</p>
+
+<p>
+  <strong>status:</strong>
+  <%= @loan.status %>
+</p>
+
+<p>
+  <strong>Profession:</strong>
+  <%= @loan.profession %>
+</p>
+
+<p>
+  <strong>Salary:</strong>
+  <%= @loan.salary %>
+</p>
+
+<p>
+  <strong>Remarks:</strong>
+  <%= @loan.remarks %>
+</p>
+
+<p>
+  <strong>Obligation:</strong>
+  <%= @loan.obligation %>
+</p>
+
+<%= link_to 'Edit', edit_loan_path(@loan), class: "btn btn-outline-success btn-md" %> |
+<%= link_to 'Back', loans_path, class: "btn btn-outline-info btn-md" %>

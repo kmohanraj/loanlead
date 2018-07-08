@@ -1,0 +1,79 @@
+<div class="table_invoice">
+  <table class='table table-striped table-bordered table-hover'>
+    <thead>
+      <tr class="bg-primary">
+        <th class="align_center">Ref ID</th>
+        <th class="align_center">Name</th>
+        <th class="align_center">Mobile No</th>
+        <th class='align_center'>Loan Amount</th>
+        <th class='align_center'>Email</th>
+        <th class='align_center'>Status</th>
+        <th class='align_center'>Profession</th>
+        <th class='align_center'>Salary</th>
+        <th class='align_center'>Remarks</th>
+        <th class='align_center'>Obligation</th>
+        <th class='align_center'>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @loans.each do |loan| %>
+      <tr>
+        <td class="align_center">
+          <%= loan.reference %>
+        </td>
+        <td class="align_center">
+          <%= link_to(loan.name, loan) %>
+        </td>
+        <td class="align_center">
+          <%= link_to(loan.contact_no, loan) %>
+        </td>
+        <td class="align_center">
+          <%= link_to(loan.loan_amount, loan) %>
+        </td>
+        <td class="align_center">
+          <%= loan.email %>
+        </td>
+        <td class="align_center">
+          <%= link_to(loan.status, loan) %>
+        </td>
+        <td class="align_center">
+          <%= loan.profession %>
+        </td>
+        <td class="align_center">
+          <%= loan.salary %>
+        </td>
+        <td class="align_center">
+          <%= truncate(loan.remarks, :length => 10) %>
+        </td>
+        <td class="align_center">
+          <%= loan.obligation %>
+        </td>
+        <td>
+          <%= link_to 'Edit', edit_loan_path(loan) %>
+          <%#= link_to 'Edit', edit_loan_path(loan),class: "btn btn-outline-primary btn-md" %>
+          <%= link_to 'Destroy', loan, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+    </tfoot>
+  </table>
+
+      <% if @loans.empty? %>
+          <div class="align_center">
+            <span class="no_record"><%= " No Records Found.."%></span>
+          </div>
+      <% end %>
+</div>
+<div class="flickr_pagination pagination-margin">
+  <%= will_paginate @loans, container: false %>
+</div>
+
+
+<style>
+  
+  .no_record{
+    color: red;
+  }
+</style>

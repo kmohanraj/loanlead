@@ -1,0 +1,96 @@
+
+<div class="row action-button-margins">
+    <div class="col-md-2">
+      <button type="button" class= "btn btn-outline-primary btn-md" data-toggle="modal" data-target="#ModalAddFinance">Add new lead</button>
+    </div>
+    <div class="col-md-2">
+      <%= link_to "All Lead", root_path, class: "btn btn-outline-primary btn-md" %>
+    </div>
+
+    <div class="col-md-3">
+       <li class="btn btn-outline-primary btn-md"><a href="#">Sort By</a>
+            <ul>
+              <li><%= link_to 'Closed', loans_path(search: "closed_status"), class: "btn btn-outline-primary btn-md" %></li>
+              <li><%= link_to 'Opened', loans_path(search: "opened_status"), class: "btn btn-outline-primary btn-md"%></li>
+              <li><%= link_to 'Follow', loans_path(search: "follow_status"), class: "btn btn-outline-primary btn-md"%></li>
+            </ul>
+        </li>
+    </div>
+<!--     <div class="col-md-2">
+      <%#= link_to "Today", loans_path(search: "today"), class: "btn btn-outline-primary btn-md" %>
+    </div>
+ -->
+
+    <div class="col-4">
+      <%= form_tag(loans_path, method: :get) do %>
+        <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: "search name, mobile no " %>
+        <%#= submit_tag 'Search', name: nil ,class: "btn btn-outline-primary btn-md" %>
+      <% end %>
+    </div>       
+
+    <div class="col-md-10">
+      <div class="full-left">
+        <% if user_signed_in?%>
+          <span class="user"><%= current_user.email %></span>
+              <%= link_to "Change Password", edit_user_registration_path %>
+              <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+        <% end %>
+      </div>
+    </div>
+
+
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="ModalAddFinance" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">New Loan</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="errors_invoice">
+        </div>
+        <%= render "form2" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<style type="text/css">
+  ul {list-style: none;padding: 0px;margin: 0px;}
+  ul li {display: block;position: relative;float: left;border:1px solid #fff}
+  li ul {display: none;}
+  ul li a {display: block;background: #fff;padding: 5px 10px 5px 10px;text-decoration: none;
+           white-space: nowrap;color: #fff;}
+  ul li a:hover {background: #fff;}
+  li:hover ul {display: block; position: absolute;}
+  li:hover li {float: none;}
+  li:hover a {background: #b9b9b9;}
+  li:hover li a:hover {background: #0275d8;}
+  #drop-nav li ul li {border-top: 0px;}
+  .email{
+    padding-top: 1%;
+  }
+  .hi{
+    color: black;
+    background-color: #94a294;
+  }
+  .user{
+    background-color: orange;
+    font-size: 20px;
+
+  }
+  .full-left{
+        width: 99%;
+    float: right;
+    margin-top: -8%;
+}
+  }
+</style>

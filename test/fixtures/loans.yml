@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  contact_no: MyString
+  email: MyString
+  loan_amount: MyString
+  pstatus: MyString
+  profession: MyString
+  salary: 1.5
+  remarks: MyString
+  obligation: MyString
+
+two:
+  name: MyString
+  contact_no: MyString
+  email: MyString
+  loan_amount: MyString
+  pstatus: MyString
+  profession: MyString
+  salary: 1.5
+  remarks: MyString
+  obligation: MyString

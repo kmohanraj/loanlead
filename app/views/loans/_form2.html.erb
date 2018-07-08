@@ -1,0 +1,74 @@
+<%= form_for (:loan), html: {class: 'finance_form'}, method: :post, remote: true do |f| %>
+  
+
+  <div class="form-group row">
+    <%= f.label :name, "Customer Name:", class: "col-4 col-form-label" %>
+    <div class="col-8">
+      <%= f.text_field :name, required: true, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :contact_no, "Contact No:", class: "col-4 col-form-label" %>
+    <div class="col-8">
+      <%= f.text_field :contact_no, required: true, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+   <%= f.label :email, "Email:", class: "col-4 col-form-label" %>
+   <div class="col-8">
+     <%= f.text_field :email, required: true, class: 'form-control' %>
+   </div>
+  </div>
+
+  <div class="form-group row">
+   <%= f.label :loan_amount, "Loan Amount:", class: "col-4 col-form-label" %>
+   <div class="col-8">
+     <%= f.number_field :loan_amount, required: true, class: 'form-control' %>
+   </div>
+  </div>
+
+  <div class="form-group row">
+   <%= f.label :salary, "Salary:", class: "col-4 col-form-label" %>
+   <div class="col-8">
+     <%= f.number_field :salary, required: true, class: 'form-control', min: 0 %>
+   </div>
+  </div>
+  
+  <div class="form-group row">
+   <%= f.label :obligation, "Obligation:", class: "col-4 col-form-label" %>
+   <div class="col-8">
+     <%= f.text_field :obligation, required: true, class: 'form-control' %>
+   </div>
+  </div>
+  
+  <div class="form-group row">
+   <%= f.label :profession, "Profession:", class: "col-4 col-form-label" %>
+   <% profession = ['Self Emp1', 'Self Emp2']%>
+   <div class="col-8">
+     <%= f.select :profession, profession, required: true, class: 'form-control', prompt: "select" %>
+   </div>
+  </div>
+
+  <div class="form-group row">
+   <%= f.label :status, "Status:", class: "col-4 col-form-label" %>
+   <div class="col-8">
+    <%#= f.select :status,  options_from_collection_for_select(Loan::ENUM_ENTITY, :last, :first ), { :prompt => "select"}, {selected: true} %>
+    <%= select_tag :status,  options_from_collection_for_select(Loan::ENUM_ENTITY, :last, :first ), { :prompt => "Select Status"} %>
+   </div>
+  </div>
+
+  <div class="form-group row">
+   <%= f.label :remarks, "Remarks:", class: "col-4 col-form-label" %>
+   <div class="col-8">
+     <%= f.text_area :remarks, required: true, class: 'form-control' %>
+   </div>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit "Submit", class: 'btn btn-primary pull-right'  %>
+  </div>
+
+<% end %>
