@@ -13,8 +13,14 @@ class LoansController < ApplicationController
     @loans = loans.paginate(page: params[:page]).order("created_at DESC").per_page(10)
     respond_to do |format|
     format.html
-    format.json {render json: @loan, status: :ok}
+    format.csv {send_data @loans.to_csv(['name', 'contact_no', 'email', 'profession', 'salary', 'obligation', 'status', 'loan_amount', 'remarks'])}
+    # format.json {render json: @loan, status: :ok}
     end 
+  end
+
+  def import
+    Loan.import(params[:file])
+    redirect_to root_path, notice: "Lead Loans Imported."
   end
 
   def new

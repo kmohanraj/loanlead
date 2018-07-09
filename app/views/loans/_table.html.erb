@@ -5,13 +5,13 @@
         <th class="align_center">Ref ID</th>
         <th class="align_center">Name</th>
         <th class="align_center">Mobile No</th>
-        <th class='align_center'>Loan Amount</th>
         <th class='align_center'>Email</th>
-        <th class='align_center'>Status</th>
         <th class='align_center'>Profession</th>
         <th class='align_center'>Salary</th>
-        <th class='align_center'>Remarks</th>
         <th class='align_center'>Obligation</th>
+        <th class='align_center'>Status</th>
+        <th class='align_center'>Loan Amount</th>
+        <th class='align_center'>Remarks</th>
         <th class='align_center'>Actions</th>
       </tr>
     </thead>
@@ -28,13 +28,7 @@
           <%= link_to(loan.contact_no, loan) %>
         </td>
         <td class="align_center">
-          <%= link_to(loan.loan_amount, loan) %>
-        </td>
-        <td class="align_center">
           <%= loan.email %>
-        </td>
-        <td class="align_center">
-          <%= link_to(loan.status, loan) %>
         </td>
         <td class="align_center">
           <%= loan.profession %>
@@ -43,10 +37,16 @@
           <%= loan.salary %>
         </td>
         <td class="align_center">
-          <%= truncate(loan.remarks, :length => 10) %>
+          <%= loan.obligation %>
         </td>
         <td class="align_center">
-          <%= loan.obligation %>
+          <%= link_to(loan.status, loan) %>
+        </td>
+        <td class="align_center">
+          <%= link_to(loan.loan_amount, loan) %>
+        </td>
+        <td class="align_center">
+          <%= truncate(loan.remarks, :length => 10) %>
         </td>
         <td>
           <%= link_to 'Edit', edit_loan_path(loan) %>

@@ -10,35 +10,7 @@
   </head>
 
   <body>
-    <header id="header-navbar" class="content-mini content-mini-full bg-primary">
-                <!-- Header Navigation Right -->
-                <ul class="nav-header pull-left">
-                    <li>
-                        <div class="btn-group">
-                            <ul class="dropdown-menu dropdown-menu-right">
-                              <% if user_signed_in?%>
-                              <li class="dropdown-header">Login as</li>
-                                <li><a><%= current_user.email %></a></li>
-                                <li class="divider"></li>
-                                <li class="dropdown-header">Profile</li>
-                                <li>
-                                    <%= link_to edit_user_registration_path do %>
-                                        <i class="si si-lock pull-right"></i> Change Password
-                                    <% end %>
-                                </li>
-                                <li>
-                                    <%= link_to destroy_user_session_path, :method => :delete do %>
-                                        <i class="si si-logout pull-right"></i>Log out
-                                    <% end %>
 
-                                </li>
-                              <% end %>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-
-            </header>
     <%= yield %>
   </body>
 </html>

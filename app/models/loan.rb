@@ -10,9 +10,6 @@ class Loan < ApplicationRecord
   scope :today, -> { where(:created_at => Date.today)}
   scope :day_wise, -> { where("? BETWEEN startDate AND endDate", Date.today)}
 
-  # enum status: [:incomes, :expenses]
-	# ENUM_ENTITY = {"incomes" => 0, "expenses" => 1}
-
   enum status: [:closed, :opened, :follow_up]
   ENUM_ENTITY = {"closed" => 0, "opened" => 1, "follow up" => 2}
  
@@ -31,5 +28,25 @@ class Loan < ApplicationRecord
       self.reference =  "FYL000#{a}" if self.reference.blank?
     end
   end
+
+#Export and Import Configuration
+
+  def self.to_csv(fields = column_names, options = {})
+    CSV.generate(options) do |csv|
+      csv << fields
+      all.each do |loan|
+        csv << loan.attributes.values_at(*fields)
+      end
+    end
+  end
+
+  def self.import(file)
+    CSV.foreach(file.path, headers: true) do |row|
+      loan_hash = row.to_hash
+      loan = find_or_create_by!(name: loan_hash['name'],contact_no: loan_hash['contact_no'], email: loan_hash['email'], profession: loan_hash['profession'], salary: loan_hash['salary'], obligation: loan_hash['obligation'], status: loan_hash['status'],loan_amount: loan_hash['loan_amount'], remarks: loan_hash['remarks'])
+      loan.update_attributes(loan_hash)
+    end
+  end
+
 
 end
