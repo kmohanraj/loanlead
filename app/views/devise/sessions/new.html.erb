@@ -1,4 +1,4 @@
-<div class="login">
+<!-- <div class="login"> -->
   <% if notice %>
       <div class="alert alert-info">
         <strong>Notice!</strong> <%= notice %>
@@ -12,10 +12,10 @@
   <% end %>
 
   <div class="ibox-content">
+        <h3 style="margin-bottom: 40px;" class="text-center">
+          <strong>Login</strong></h3>
     <div class="row">
       <div class="col-sm-12">
-        <h3 style="margin-bottom: 40px;">
-          <strong>Login</strong></h3>
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                 <div class="form-group">
                     <%= f.email_field :email,:placeholder=>"Email", :class=>"form-control", autofocus: true %>
@@ -38,7 +38,7 @@
   </div>
 <%#= render "devise/shared/links" %>
 
-</div>
+<!-- </div> -->
 
 <style>
   .login{
