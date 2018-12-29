@@ -1,4 +1,6 @@
 class LoansController < ApplicationController
+  before_action :authenticate_user!
+
   before_action :set_loan, only: [:show, :edit, :update, :destroy]
   
   # after_action :get_id, on: :create

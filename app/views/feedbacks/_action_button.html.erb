@@ -1,48 +1,16 @@
 
 <div class="row action-button-margins">
     <div class="col-md-2">
-      <button type="button" class= "btn btn-outline-primary btn-md" data-toggle="modal" data-target="#ModalAddFinance">Add new lead</button>
-    </div>
-    <div class="col-md-2">
       <%= link_to "New Feedback", new_feedback_path, class: "btn btn-outline-primary"%>
     </div>
-    
-    <div class="dropdown">
-      <button onclick="myFunction()" id="dropbtn" class= "btn btn-outline-primary btn-md"">Sort By</button>
-        <div id="myDropdown" class="dropdown-content">
-          <%= link_to 'Closed', loans_path(search: "closed_status") %>
-          <%= link_to 'Opened', loans_path(search: "opened_status")%>
-          <%= link_to 'Follow', loans_path(search: "follow_status")%>
-        </div>
-    </div>
-
-    <div class="col-md-2">
-      <%= link_to "All Lead", root_path, class: "btn btn-outline-primary btn-md" %>
-    </div>
-
   
     <div class="col-md-2">
        <%= form_tag import_loans_path, multipart: true, class: 'form-inline' do %>
         <div class="form-group">
           <%= link_to "Export CSV", loans_path(format: "csv"), class: 'btn btn-outline-success btn-md' %>
         </div>
-        <!-- <div class="form-group">
-          <%#= file_field_tag :file, class: '' %>
-        </div> -->
-        
-        <!-- <div class="form-group"> -->
-          <%#= submit_tag "CSV", class: 'btn btn-info' %>
-        <!-- </div> -->
       <% end %>
     </div>
-
-
-    <div class="col-3">
-      <%= form_tag(loans_path, method: :get) do %>
-        <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: "search name, mobile no " %>
-        <%#= submit_tag 'Search', name: nil ,class: "btn btn-outline-primary btn-md" %>
-      <% end %>
-    </div> 
 
     <div class="col-md-10">
       <div class="full-left">
@@ -71,7 +39,7 @@
       <div class="modal-body">
         <div class="errors_invoice">
         </div>
-        <%= render "form2" %>
+        <%#= render "form2" %>
       </div>
     </div>
   </div>

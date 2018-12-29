@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  contact: MyString
+  society: MyString
+  block: MyString
+  flat_number: MyString
+  product_feedback: MyString
+  executive_feedback: MyString
+
+two:
+  name: MyString
+  contact: MyString
+  society: MyString
+  block: MyString
+  flat_number: MyString
+  product_feedback: MyString
+  executive_feedback: MyString

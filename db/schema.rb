@@ -10,9 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_07_184734) do
+ActiveRecord::Schema.define(version: 2018_12_29_112841) do
 
-  create_table "loans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.string "name"
+    t.string "contact"
+    t.string "society"
+    t.string "block"
+    t.string "flat_number"
+    t.string "product_feedback"
+    t.string "executive_feedback"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "loans", force: :cascade do |t|
     t.string "name"
     t.string "contact_no"
     t.string "email"
@@ -28,7 +43,15 @@ ActiveRecord::Schema.define(version: 2018_07_07_184734) do
     t.string "reference"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "references", force: :cascade do |t|
+    t.string "contact_no"
+    t.bigint "feedback_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["feedback_id"], name: "index_references_on_feedback_id"
+  end
+
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -45,4 +68,5 @@ ActiveRecord::Schema.define(version: 2018_07_07_184734) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "references", "feedbacks"
 end

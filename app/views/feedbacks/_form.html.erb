@@ -1,0 +1,69 @@
+<h3 style="color: #6d716d;" class="text-center">Customer Feedback</h3>
+</br>
+<%= form_for @feedback, :html => { :multipart => true } do |f| %>
+  <div class="form-group row">
+    <%= f.label :name, "Customer Name:", class: "col-4 col-form-label" %>
+    <div class="col-8">
+      <%= f.text_field :name, required: true, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :contact, "Contact No:", class: "col-4 col-form-label" %>
+    <div class="col-8">
+      <%= f.number_field :contact, required: true, :maxlength => 10, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+   <%= f.label :society, "Society:", class: "col-4 col-form-label" %>
+   <div class="col-8">
+     <%= f.text_field :society, class: 'form-control' %>
+   </div>
+  </div>
+
+  <div class="form-group row">
+   <%= f.label :block, "Block:", class: "col-4 col-form-label" %>
+   <div class="col-8">
+     <%= f.number_field :block, class: 'form-control' %>
+   </div>
+  </div>
+
+  <div class="form-group row">
+   <%= f.label :flat_number, "Flat Number:", class: "col-4 col-form-label" %>
+   <div class="col-8">
+     <%= f.number_field :flat_number, class: 'form-control', min: 0 %>
+   </div>
+  </div>
+  
+  <div class="form-group row">
+   <%= f.label :product_feedback, "Product Feedback:", class: "col-4 col-form-label" %>
+   <div class="col-8">
+     <%= f.text_area :product_feedback, required: true, class: 'form-control' %>
+   </div>
+  </div>
+
+   <div class="form-group row">
+   <%= f.label :executive_feedback, "Executive Feedback:", class: "col-4 col-form-label" %>
+   <div class="col-8">
+     <%= f.text_area :executive_feedback, required: true, class: 'form-control' %>
+   </div>
+  </div>
+
+  <div class="form-group row">
+   <%#= f.label :executive_feedback, "Executive Feedback:", class: "col-4 col-form-label" %>
+    <%= link_to_add_association f, :references do %>
+     	<strong style="color: red">Add Reference No</strong>
+     <% end %>
+   <div class="col-4">
+     <%= f.fields_for :references do |rf| %>
+     	<% render 'reference_fields', f: rf %>
+     <% end %>
+   </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Submit", class: 'btn btn-primary pull-right'  %>
+  </div>
+
+<% end %>

@@ -1,0 +1,67 @@
+<div class="table_invoice">
+  <table class='table table-striped table-bordered table-hover'>
+    <thead>
+      <tr class="bg-primary">
+        <th class="align_center">Name</th>
+        <th class="align_center">Contact No</th>
+        <th class='align_center'>Socity</th>
+        <th class='align_center'>Block</th>
+        <th class='align_center'>Flat number</th>
+        <th class='align_center'>Product Feedback</th>
+        <th class='align_center'>Executive Feedback</th>
+        <th class='align_center'>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @feedbacks.each do |feedback| %>
+      <tr>
+        <td class="align_center">
+          <%= feedback.name %>
+        </td>
+        <td class="align_center">
+          <%= feedback.contact %>
+        </td>
+        <td class="align_center">
+          <%= feedback.society %>
+        </td>
+        <td class="align_center">
+          <%= feedback.block %>
+        </td>
+        <td class="align_center">
+          <%= feedback.flat_number %>
+        </td>
+        <td class="align_center">
+          <%= feedback.product_feedback %>
+        </td>
+        <td class="align_center">
+          <%= feedback.executive_feedback %>
+        </td>
+        <td>
+          <%= link_to 'Edit', edit_feedback_path(feedback) %>
+          <%#= link_to 'Edit', edit_feedback_path(feedback),class: "btn btn-outline-primary btn-md" %>
+          <%= link_to 'Destroy', feedback, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+    </tfoot>
+  </table>
+
+      <% if @feedbacks.empty? %>
+          <div class="align_center">
+            <span class="no_record"><%= " No Records Found.."%></span>
+          </div>
+      <% end %>
+</div>
+<div class="flickr_pagination pagination-margin">
+  <%= will_paginate @feedbacks, container: false %>
+</div>
+
+
+<style>
+  
+  .no_record{
+    color: red;
+  }
+</style>

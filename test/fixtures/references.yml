@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contact_no: MyString
+  feedback: one
+
+two:
+  contact_no: MyString
+  feedback: two

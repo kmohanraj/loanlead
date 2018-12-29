@@ -15,6 +15,7 @@
  *= require jquery-ui/datepicker
  *= require toastr.min
  *= require pagination
+ *= require feedbacks
  *= require_tree .
  *= require_self
  */

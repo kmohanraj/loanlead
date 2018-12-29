@@ -1,9 +1,4 @@
- <div class="login">
-
-   <h2 style="font-size: 40px; margin-bottom: 50px; color: #f70b0b">FINALIZE <span style="color: #1ab394; font-weight: 900">Loan</span></h2>
-
-
-    <% if notice %>
+n    <% if notice %>
         <div class="alert alert-info">
           <strong>Notice!</strong> <%= notice %>
         </div>
@@ -15,10 +10,16 @@
         </div>
     <% end %>
 
-  <div class="ibox-content">
-      <h3 style="margin-bottom: 40px;">Sign up</h3>
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <div class="form-group m-t">
+  <div class="row">
+<div class="ibox-content">
+    <div class="col-xl-6">
+        <div class="text-center">
+            <h3 class="mb-3">
+              <strong>Sign Up</strong>
+            </h3>
+        </div>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <div class="form-group">
             <%= f.email_field :email,:placeholder=>"Email", :class=>"form-control", autofocus: true %>
           </div>
           <div class="form-group">
@@ -27,26 +28,16 @@
               <em>(<%= @minimum_password_length %> characters minimum)</em>
               <% end %><br />
               <%= f.password_field :password, autocomplete: "off" , class: 'form-control'%>
-            <%#= f.password_field :password, :placeholder=>"Password", :class=>"form-control", autocomplete: "off" %>
+          </div>
+          <div class="form-group">
+              <%= f.label :password_confirmation %>
+              <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
           </div>
 
-            <div class="form-group">
-              <%= f.label :password_confirmation %><br />
-              <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
-            </div>
-
           <%= f.submit "Sign up", :class => "btn btn-primary block full-width m-b" %>
-      <% end %>
+        <% end %>
     </div>
-
   <%= render "devise/shared/links" %>
-
 </div>
+  </div>
 
-<style>
-  .login{
-    width: 69%;
-    float: right;
-    padding-right: 35%;
-  }
-</style>
