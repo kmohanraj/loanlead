@@ -1,5 +1,6 @@
 class HousingRentalsController < ApplicationController
 
+  before_action :authenticate_user!, :except => [:new, :create, :thank_you]
   def index
     housings = HousingRental.all
     @housings = housings.paginate(page: params[:page]).order("created_at DESC").per_page(5)
