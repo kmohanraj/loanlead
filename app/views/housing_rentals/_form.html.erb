@@ -1,0 +1,159 @@
+<h3 style="color: #2c3e50;" class="text-center"><%= image_tag('house-search') %>Your Rental Agent</h3>
+</br>
+<%= form_for @housing, :html => { :multipart => true } do |f| %>
+  <div class="form-group row">
+    <%= f.label :name, "Customer Name:", class: "col-4 col-form-label" %>
+    <div class="col-8">
+      <%= f.text_field :name, required: true, class: 'form-control', placeholder: "your name" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :contact, "Contact No:", class: "col-4 col-form-label" %>
+    <div class="col-8">
+      <%= f.number_field :contact, required: true, :maxlength => 10, class: 'form-control', placeholder: "ex. 12345678990" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+   <%= f.label :society_name, "Society Name:", class: "col-4 col-form-label" %>
+   <div class="col-8">
+     <%= f.text_field :society_name, class: 'form-control', required: true,  placeholder: "society name" %>
+   </div>
+  </div>
+
+  <div class="form-group row">
+   <%= f.label :block, "Block:", class: "col-4 col-form-label" %>
+   <div class="col-8">
+     <%= f.text_field :block, class: 'form-control', required: true,  placeholder: 'ex. 4th block' %>
+   </div>
+  </div>
+
+  <div class="form-group row">
+   <%= f.label :flat_number, "Flat No:", class: "col-4 col-form-label" %>
+   <div class="col-8">
+     <%= f.text_field :flat_no, class: 'form-control', required: true, placeholder: "ex. 123" %>
+   </div>
+  </div>
+
+  <div class="form-group row">
+   <%= f.label :square_feet, "Sqr Feet / Bedroom", class: "col-4 col-form-label" %>
+   <div class="col-4">
+     <%= f.text_field :square_feet, required: true, class: 'form-control', placeholder: "ex. 1200" %>
+   </div>
+    <div class="col-2 select ">
+     <%= f.select :bedroom, ["1RK", "1BHK", "2BHK", "3BHK", "4BHK"], required: true, class: 'form-control', prompt: "select" %>
+   </div>
+  </div>
+
+  <div class="form-group row">
+   <%= f.label :negotiable, "Negotiable / Site Visit:", class: "col-4 col-form-label" %>
+   <div class="col-4">
+     <%= f.select :negotiable, ['Yes', 'No'], required: true, class: 'form-control', prompt: "select" %>
+   </div>
+   <div class="col-2 select">
+     <%= f.select :site_visit,["Yes", "No"], required: true, class: 'form-control', prompt: "select" %>
+   </div>
+  </div>
+
+  <div class="form-group row">
+      <%= f.label :rental_amt, "Rental Price / Deposit Amt", class: "col-4 col-form-label" %>
+      <div class="col-4">
+        <%= f.number_field :rental_amt, required: true, class: 'form-control', placeholder: "20000" %>
+      </div>
+       <div class="col-4">
+         <%= f.number_field :deposit, required: true, class: 'form-control', placeholder: "50000" %>
+       </div>
+   </div>
+  </div>
+
+  <div class="form-group row">
+   <%= f.label :remarks, "Remarks:", class: "col-4 col-form-label" %>
+   <div class="col-8 remarks-style">
+     <%= f.text_area :remarks, required: true, class: 'form-control', placeholder: "your valuable feedback" %>
+   </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Submit", class: 'btn btn-info pull-right'  %>
+  </div>
+<% end %>
+
+
+
+
+
+
+<style type="text/css">
+  body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 94vh;
+  background: #f39c12;
+}
+h1 {
+  margin: 0 0 0.25em;
+}
+/* Reset Select */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: #2c3e50;
+  background-image: none;
+}
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+/* Custom Select */
+#housing_rental_bedroom,
+#housing_rental_site_visit,
+#housing_rental_negotiable {
+  position: relative;
+  display: flex;
+  width: 7em;
+  height: 3em;
+  line-height: 3;
+  background: #ffffff;
+  overflow: hidden;
+  border-radius: .25em;
+}
+select {
+  flex: 1;
+  padding: 0 .5em;
+  color: #999;
+  cursor: pointer;
+}
+/* Arrow */
+#housing_rental_bedroom::after,
+#housing_rental_site_visit::after,
+#housing_rental_negotiable::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: #34495e;
+  cursor: pointer;
+  pointer-events: none;
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+}
+/* Transition */
+#housing_rental_bedroom:hover::after,
+#housing_rental_site_visit:hover::after,
+#housing_rental_negotiable:hover::after {
+  color: #f39c12;
+}
+.remarks-style {
+  width: 280px;
+}
+</style>

@@ -1,0 +1,66 @@
+<h2>House Info:</h2>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @housing.name %>
+</p>
+
+<p>
+  <strong>Contact no:</strong>
+  <%= @housing.contact %>
+</p>
+
+<p>
+  <strong>Society name: </strong>
+  <%= @housing.society_name %>
+</p>
+
+<p>
+  <strong>Block: </strong>
+  <%= @housing.block %>
+</p>
+
+<p>
+  <strong>Flat No: </strong>
+  <%= @housing.flat_no %>
+</p>
+
+<p>
+  <strong>Bedroom: </strong>
+  <%= @housing.bedroom %>
+</p>
+
+<p>
+  <strong>Square Feet: </strong>
+  <%= @housing.square_feet %>
+</p>
+
+<p>
+  <strong>Rental Amt: </strong>
+  <%= @housing.rental_amt %>
+</p>
+
+<p>
+  <strong>Deposit: </strong>
+  <%= @housing.deposit %>
+</p>
+
+<p>
+  <strong>Negotiable: </strong>
+  <%= @housing.negotiable %>
+</p>
+
+<p>
+  <strong>Site Visit: </strong>
+  <%= @housing.site_visit %>
+</p>
+
+<p>
+  <strong>Remarks: </strong>
+  <%= @housing.remarks %>
+</p>
+
+<%= link_to 'Edit', edit_housing_rental_path(@housing), class: "btn btn-outline-success btn-md" %> |
+<%= link_to 'Back', housing_rentals_path, class: "btn btn-outline-info btn-md" %>
+   

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_29_112841) do
+ActiveRecord::Schema.define(version: 2019_07_31_174259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,23 @@ ActiveRecord::Schema.define(version: 2018_12_29_112841) do
     t.string "flat_number"
     t.string "product_feedback"
     t.string "executive_feedback"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "housing_rentals", force: :cascade do |t|
+    t.string "name"
+    t.string "contact"
+    t.string "society_name"
+    t.string "block"
+    t.string "flat_no"
+    t.string "bedroom"
+    t.string "square_feet"
+    t.string "rental_amt"
+    t.string "deposit"
+    t.string "negotiable"
+    t.string "site_visit"
+    t.string "remarks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
