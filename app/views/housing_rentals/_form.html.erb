@@ -1,8 +1,9 @@
-<h3 style="color: #2c3e50;" class="text-center"><%#= image_tag('house-search') %>Your Rental Agent</h3>
+<h3 class="text-center header-color"><span class="fa fa-home"></span> <%#= image_tag('house-search') %>Your Rental Agent</h3> 
+
 </br>
 <%= form_for @housing, :html => { :multipart => true } do |f| %>
   <div class="form-group row">
-    <%= f.label :name, "Customer Name:", class: "col-4 col-form-label" %>
+    <%= f.label :name, "Owner Name:", class: "col-4 col-form-label" %>
     <div class="col-8">
       <%= f.text_field :name, required: true, class: 'form-control', placeholder: "your name" %>
     </div>
@@ -18,31 +19,31 @@
   <div class="form-group row">
    <%= f.label :society_name, "Society Name:", class: "col-4 col-form-label" %>
    <div class="col-8">
-     <%= f.text_field :society_name, class: 'form-control', required: true,  placeholder: "society name" %>
+     <%= f.text_field :society_name, class: 'form-control', required: true %>
    </div>
   </div>
 
   <div class="form-group row">
    <%= f.label :block, "Block:", class: "col-4 col-form-label" %>
    <div class="col-8">
-     <%= f.text_field :block, class: 'form-control', required: true,  placeholder: 'ex. 4th block' %>
+     <%= f.text_field :block, class: 'form-control', required: true %>
    </div>
   </div>
 
   <div class="form-group row">
    <%= f.label :flat_number, "Flat No:", class: "col-4 col-form-label" %>
    <div class="col-8">
-     <%= f.text_field :flat_no, class: 'form-control', required: true, placeholder: "ex. 123" %>
+     <%= f.text_field :flat_no, class: 'form-control', required: true %>
    </div>
   </div>
 
   <div class="form-group row">
    <%= f.label :square_feet, "Sqr Feet / Bedroom", class: "col-4 col-form-label" %>
    <div class="col-4">
-     <%= f.text_field :square_feet, required: true, class: 'form-control', placeholder: "ex. 1200" %>
+     <%= f.text_field :square_feet, required: true, class: 'form-control'%>
    </div>
     <div class="col-2 select ">
-     <%= f.select :bedroom, ["1RK", "1BHK", "2BHK", "3BHK", "4BHK"], required: true, class: 'form-control', prompt: "select" %>
+     <%= f.select :bedroom, ["1 RK", "1 BHK", "2 BHK", "3 BHK", "4 BHK"], required: true, class: 'form-control', prompt: "select" %>
    </div>
   </div>
 
@@ -59,23 +60,23 @@
   <div class="form-group row">
       <%= f.label :rental_amt, "Rental Price / Deposit Amt", class: "col-4 col-form-label" %>
       <div class="col-4">
-        <%= f.number_field :rental_amt, required: true, class: 'form-control', placeholder: "20000" %>
+        <%= f.number_field :rental_amt, required: true, class: 'form-control' %>
       </div>
        <div class="col-4">
-         <%= f.number_field :deposit, required: true, class: 'form-control', placeholder: "50000" %>
+         <%= f.number_field :deposit, required: true, class: 'form-control' %>
        </div>
    </div>
   </div>
 
   <div class="form-group row">
-   <%= f.label :remarks, "Remarks:", class: "col-4 col-form-label" %>
+   <%= f.label :remarks, "Description:", class: "col-4 col-form-label" %>
    <div class="col-8 remarks-style">
-     <%= f.text_area :remarks, required: true, class: 'form-control', placeholder: "your valuable feedback" %>
+     <%= f.text_area :remarks, required: true, class: 'form-control'%>
    </div>
   </div>
 
   <div class="actions">
-    <%= f.submit "Submit", class: 'btn btn-info pull-right'  %>
+    <%= f.submit "Submit", class: 'btn pull-right btn-color'  %>
   </div>
 <% end %>
 
@@ -91,7 +92,7 @@
   justify-content: center;
   align-items: center;
   height: 94vh;
-  background: #f39c12;
+  background: #FDD900;
 }
 h1 {
   margin: 0 0 0.25em;

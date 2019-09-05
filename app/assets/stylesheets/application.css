@@ -16,6 +16,23 @@
  *= require toastr.min
  *= require pagination
  *= require feedbacks
+ *= require font-awesome
  *= require_tree .
  *= require_self
  */
+.btn-color{
+  background-color: #144786;
+  color: #fffffF;
+}
+
+.login{
+  width: 69%;
+  float: right;
+  padding-right: 35%;
+}
+.login-style {
+	padding-top: 10%;
+}
+.header-color {
+	color: #144786;
+}

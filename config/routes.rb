@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   get '/thankyou', to: "feedbacks#thankyou"
   get '/thank_you', to: "housing_rentals#thank_you"
 
-  devise_for :users
-
+  devise_for :users, skip: :registrations
   resources :housing_rentals
   resources :loans
   resources :feedbacks
